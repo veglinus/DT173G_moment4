@@ -16,7 +16,7 @@ const files = {
     css: "src/**/*.css",
     sass: "src/sass/*.scss",
     js: "src/**/*.js",
-    imgs: "src/**/*",
+    imgs: "src/imgs/*",
     assets: "src/assets/*"
 }
 
@@ -62,7 +62,7 @@ function minifyIMGS() {
         imagemin.mozjpeg({quality: 50, progressive: true}),
         imagemin.optipng({optimizationLevel: 0})
     ]))
-    .pipe(dest('pub'))
+    .pipe(dest('pub/imgs'))
     .pipe(browserSync.stream())
 }
 
@@ -100,7 +100,7 @@ function watchTask() {
 // Default task
 exports.default = series(
     clean,
-    parallel(copyhtml, minifyJS, minifyIMGS, sassTask, copyAssets),
+    parallel(copyhtml, minifyJS, minifyIMGS, sassTask),
     watchTask
 )
 
@@ -110,4 +110,4 @@ exports.copyhtml = copyhtml;
 exports.minifyJS = minifyJS;
 //exports.minifyCSS = minifyCSS;
 exports.minifyIMGS = minifyIMGS;
-exports.copyAssets = copyAssets;
+//exports.copyAssets = copyAssets;
