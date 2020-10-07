@@ -1,3 +1,3 @@
-# DT173G - Moment 3 - CSS-preprocessorer och SASS
+# DT173G - Moment 4 - ECMAScript
 
 Lösning av Linus Hvenfelt.
